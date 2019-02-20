@@ -1,34 +1,28 @@
-import driver.Driver;
-import org.junit.jupiter.api.AfterAll;
-import org.junit.jupiter.api.BeforeAll;
-import org.junit.jupiter.api.Test;
+import com.testerhome.selenium.driver.Driver;
+import com.testerhome.selenium.testcase.BaseCase;
+import org.junit.jupiter.api.*;
 import org.openqa.selenium.WebDriver;
-import page.MainPage;
+import com.testerhome.selenium.page.MainPage;
 
-public class SearchTest {
+public class SearchTest extends BaseCase {
 
-  static  WebDriver driver;
 
-    @BeforeAll
-    public static void before(){
-       Driver.start();
-       driver=Driver.getCurrentDriver();
+
+    @BeforeEach
+    public  void before(){
 
     }
 
     @Test
     public void test(){
-
-        driver.get("https://testerhome.com/");
+        Driver.getInstance().driver.get("https://testerhome.com/");
         MainPage  mainPage=new MainPage();
         mainPage.gotoSearchResultPage("selenium");
     }
 
-    @AfterAll
-    public  static void after(){
-
-        driver.close();
-        driver.quit();
+    @AfterEach
+    public   void after(){
+        Driver.getInstance().driver.close();
     }
 
 

@@ -1,4 +1,4 @@
-package page;
+package com.testerhome.selenium.page;
 
 import org.openqa.selenium.By;
 

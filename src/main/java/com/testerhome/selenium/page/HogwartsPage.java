@@ -1,6 +1,6 @@
-package page;
+package com.testerhome.selenium.page;
 
-import driver.Driver;
+import com.testerhome.selenium.driver.Driver;
 import org.openqa.selenium.By;
 import org.openqa.selenium.support.ui.ExpectedConditions;
 import org.openqa.selenium.support.ui.WebDriverWait;
@@ -14,10 +14,10 @@ public class HogwartsPage extends NavBarPage {
 
     public String TopicNotAccess() {
         click(firstTopic);
-        WebDriverWait wait = new WebDriverWait(Driver.getCurrentDriver(), 5);
+        WebDriverWait wait = new WebDriverWait(Driver.getInstance().driver, 7);
         wait.until(ExpectedConditions.presenceOfElementLocated(userName));
 
-        return Driver.getCurrentDriver().getPageSource();
+        return Driver.getInstance().driver.getPageSource();
 
 
     }

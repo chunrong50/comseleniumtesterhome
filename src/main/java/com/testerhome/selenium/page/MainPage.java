@@ -1,9 +1,6 @@
-package page;
+package com.testerhome.selenium.page;
 
-import driver.Driver;
 import org.openqa.selenium.By;
-import org.openqa.selenium.WebDriver;
-import org.openqa.selenium.support.PageFactory;
 
 /**
  * 主页面

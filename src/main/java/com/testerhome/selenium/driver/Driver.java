@@ -1,4 +1,4 @@
-package driver;
+package com.testerhome.selenium.driver;
 
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
@@ -9,17 +9,23 @@ import java.util.concurrent.TimeUnit;
 
 public class Driver {
 
-    public static WebDriver driver;
+    public WebDriver  driver;
+     public  static Driver  myDriver;
 
+    public static Driver  getInstance(){
+        if(myDriver==null)
+            myDriver=new Driver();
+        return  myDriver;
+    }
 
-    public static void start() {
+    public void start() {
         System.setProperty("webdriver.chrome.driver", "/Users/jfpay/Documents/chromedriver");
         driver = new ChromeDriver();
         driver.manage().window().maximize();
-        driver.manage().timeouts().implicitlyWait(5, TimeUnit.SECONDS);
+        driver.manage().timeouts().implicitlyWait(8, TimeUnit.SECONDS);
     }
 
-    public static WebElement find(By by) {
+    public WebElement find(By by) {
         WebElement element = null;
         try {
             element = driver.findElement(by);
@@ -32,9 +38,6 @@ public class Driver {
     }
 
 
-    public static WebDriver getCurrentDriver() {
-        return driver;
-    }
 
 
 }
